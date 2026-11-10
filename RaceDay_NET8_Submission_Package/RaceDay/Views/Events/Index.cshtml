@@ -1,0 +1,5 @@
+@model IEnumerable<RaceDay.Models.Event>
+@{ ViewData["Title"]="Events"; }
+<div class="d-flex justify-content-between align-items-center mb-3"><h1>Explore events</h1>@if(User.IsInRole("Organiser") || User.IsInRole("Admin")){<a class="btn btn-primary" asp-action="Create">Create event</a>}</div>
+<div class="row g-3">@foreach(var e in Model){<div class="col-md-6 col-lg-4"><div class="card p-4 h-100"><span class="text-muted small">@e.EventType · @e.DistanceKm km</span><h2 class="h4 mt-2">@e.Name</h2><p>@e.Location<br/>@e.Date.ToString("dd MMM yyyy, HH:mm")</p><div class="mt-auto"><a class="btn btn-primary" asp-action="Details" asp-route-id="@e.Id">Event details</a></div></div></div>}</div>
+@if(!Model.Any()){<p class="alert alert-info">No events yet. Check back soon.</p>}

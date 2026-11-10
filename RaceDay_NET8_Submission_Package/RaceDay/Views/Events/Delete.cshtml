@@ -1,0 +1,2 @@
+@model RaceDay.Models.Event
+@{ ViewData["Title"]="Delete event"; }<h1>Delete @Model.Name?</h1><p>This cannot be undone.</p><form method="post"><button class="btn btn-danger">Confirm delete</button> <a class="btn btn-secondary" asp-action="Details" asp-route-id="@Model.Id">Cancel</a></form>

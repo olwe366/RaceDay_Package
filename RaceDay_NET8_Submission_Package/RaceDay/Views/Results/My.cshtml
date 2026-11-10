@@ -1,0 +1,2 @@
+@model IEnumerable<RaceDay.Models.Result>
+@{ ViewData["Title"]="My Results"; }<h1>My results</h1><div class="table-responsive"><table class="table"><thead><tr><th>Event</th><th>Date</th><th>Category</th><th>Finish time</th><th>Position</th></tr></thead><tbody>@foreach(var r in Model){<tr><td>@r.Enrolment?.Event?.Name</td><td>@r.Enrolment?.Event?.Date.ToString("dd MMM yyyy")</td><td>@r.Enrolment?.Category?.Name</td><td>@r.FinishTime</td><td>@r.Position</td></tr>}</tbody></table></div>

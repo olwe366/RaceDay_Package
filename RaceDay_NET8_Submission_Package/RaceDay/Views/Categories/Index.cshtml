@@ -1,0 +1,4 @@
+@model IEnumerable<RaceDay.Models.Category>
+@{ var ev=(RaceDay.Models.Event)ViewBag.Event; ViewData["Title"]="Categories"; }<h1>Categories: @ev.Name</h1>
+@if((bool)(ViewBag.IsOwner ?? false)){<a class="btn btn-primary mb-3" asp-action="Create" asp-route-eventId="@ev.Id">Add category</a>}
+<table class="table"><thead><tr><th>Name</th><th>Type</th><th></th></tr></thead><tbody>@foreach(var c in Model){<tr><td>@c.Name</td><td>@c.Kind</td><td>@if((bool)(ViewBag.IsOwner ?? false)){<a asp-action="Edit" asp-route-id="@c.Id">Edit</a> <a asp-action="Delete" asp-route-id="@c.Id">Delete</a>}</td></tr>}</tbody></table>
